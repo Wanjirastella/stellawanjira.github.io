@@ -1110,3 +1110,31 @@ background-clip: text;
     transform: translateX(-50%) translateY(0); /* Slide down into view */
     opacity: 1;
 }
+
+/* Capstone, CV and online-presence sections */
+.capstone-grid, .cv-grid, .social-profile-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+.capstone-card, .cv-card { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; min-width: 0; }
+.capstone-card h3, .cv-card h3 { font-size: 1.15rem; line-height: 1.4; }
+.capstone-card p, .cv-card p { color: var(--fg-muted); font-size: .9rem; line-height: 1.65; }
+.video-frame { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: .75rem; background: #080b12; }
+.video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.social-profile { display: flex; flex-direction: column; align-items: flex-start; gap: .5rem; transition: transform .25s, border-color .25s; }
+.social-profile:hover { transform: translateY(-4px); border-color: var(--primary); }
+.social-profile i { color: var(--primary); font-size: 1.5rem; }
+.social-profile span { font-weight: 700; }
+.social-profile small { color: var(--fg-muted); }
+.navbar.scrolled { background: rgba(15,18,25,.96); }
+body.light-mode .navbar.scrolled { background: rgba(245,247,250,.97); }
+.contact-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 3rem; align-items: start; }
+.contact-column { min-width: 0; width: auto; }
+.contact-form button:disabled { opacity: .7; cursor: wait; }
+.toast-notification { position: fixed; top: 20px; left: 50%; transform: translateX(-50%) translateY(-100px); background: var(--card-bg); color: var(--primary); padding: 14px 24px; border-radius: 999px; border: 1px solid var(--primary); box-shadow: 0 10px 35px rgba(0,0,0,.25); z-index: 10000; opacity: 0; transition: transform .35s ease, opacity .35s ease; max-width: calc(100vw - 2rem); text-align: center; }
+.toast-notification.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+@media (max-width: 768px) {
+  .capstone-grid, .cv-grid, .social-profile-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
