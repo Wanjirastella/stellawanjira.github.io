@@ -3,96 +3,173 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stella Wanjira Ndungu -Tech Enthusiast</title>
-  <meta name="description" content="Portfolio of Stella Wanjira Ndungu, a full-stack web developer specializing in React, Node.js, PHP, and MySQL." />
-  <link rel="stylesheet" href="style.css" />
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <title>Stella Wanjira Ndungu - Tech Enthusiast</title>
+  <meta name="description" content="Portfolio of Stella Wanjira Ndungu, a tech enthusiast specializing in web development, IT infrastructure, cybersecurity, data analytics and AI." />
 
-<script type="text/javascript">
-   (function(){
-      // Replace "YOUR_PUBLIC_KEY" with the key from your EmailJS Account tab
-      emailjs.init("SQVoVwZjMxA_ESLnv"); 
-   })();
-</script>
+  <!-- Apply the saved theme before the page loads to prevent a flash -->
+  <script>
+    (function () {
+      try {
+        const savedTheme = localStorage.getItem('theme');
+        document.documentElement.setAttribute(
+          'data-theme',
+          savedTheme === 'light' ? 'light' : 'dark'
+        );
+      } catch (error) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+
+  <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    (function () {
+      if (window.emailjs) {
+        emailjs.init("SQVoVwZjMxA_ESLnv");
+      }
+    })();
+  </script>
 </head>
+
 <body>
 
-    
-  </div>
+  <!-- Navigation -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
+
       <a href="#" class="logo">Stella<span class="logo-dev">.dev</span></a>
+
       <div class="nav-links" id="nav-links">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
+        <a href="#capstone">Capstone</a>
+        <a href="#cv">CVs</a>
+        <a href="#online-presence">Online Presence</a>
         <a href="#services">Services</a>
         <a href="#contact">Contact</a>
       </div>
+
       <div class="theme-switch-wrapper">
-    <button id="theme-toggle" aria-label="Toggle dark mode">
-        <i class="fas fa-moon" id="theme-icon"></i>
-    </button>
-</div>
-    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+        <button
+          id="theme-toggle"
+          type="button"
+          aria-label="Switch to light mode"
+          aria-pressed="false">
+          <i class="fas fa-moon" id="theme-icon"></i>
+        </button>
+      </div>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
         <span class="hamburger"></span>
       </button>
+
     </div>
   </nav>
 
   <!-- Hero Section -->
   <section class="hero" id="hero">
+
     <div class="hero-blob blob-1"></div>
     <div class="hero-blob blob-2"></div>
+
     <div class="section-container hero-grid">
+
       <div class="hero-text">
+
         <p class="hero-subtitle">Tech-Enthusiast</p>
-        <h1>Hi, I'm <span class="gradient-text typing-text"></span></h1>
+
+        <h1>
+          Hi, I'm
+          <span class="gradient-text typing-text" aria-live="polite">a Software Developer</span>
+        </h1>
+
         <p class="hero-desc">
-          I craft robust, scalable web applications from concept to deployment. 
-          Passionate about clean code, intuitive user experiences, and turning complex problems into elegant solutions.
+          I craft robust, scalable web applications from concept to deployment.
+          Passionate about clean code, intuitive user experiences, and turning
+          complex problems into elegant solutions.
         </p>
+
         <div class="hero-buttons">
-          <a href="resume.pdf" class="btn btn-primary" download="resume">
-  <span>⬇</span> Download Resume
-</a>
-          <a href="#contact" class="btn btn-outline"><span>✉</span> Hire Me</a>
+
+          <a href="assets/cv/STELLA'S CV .pdf"
+             class="btn btn-primary"
+             download="STELLA'S CV .pdf">
+            <span>⬇</span> Download Resume
+          </a>
+
+          <a href="#contact" class="btn btn-outline">
+            <span>✉</span> Hire Me
+          </a>
+
         </div>
+
       </div>
+
       <div class="hero-photo">
         <div class="photo-wrapper">
-          <img src="profile-photo.png" alt="Stella Wanjira Ndungu - Full-Stack Developer" />
+
+          <img
+            src="profile-photo.jpg"
+            alt="Stella Wanjira Ndungu - Full-Stack Developer"
+          />
+
           <div class="experience-badge">
-            <span class="exp-number">2+</span> 
-            <span class="exp-label">Years<br/>Exp</span>
+            <span class="exp-number">2+</span>
+            <span class="exp-label">Years<br />Exp</span>
           </div>
+
         </div>
       </div>
+
     </div>
   </section>
 
   <!-- About Section -->
   <section id="about" class="section-container">
+
     <h2>About <span class="gradient-text">Me</span></h2>
     <div class="section-bar"></div>
+
     <div class="about-grid">
+
       <div class="about-text">
-        <p>I'm <strong>Stella Wanjira Ndungu</strong>, a dedicated Tech Enthusiast 
-        with a deep-rooted passion for the entire digital ecosystem. My expertise isn't limited to the screen—I bridge the gap between 
-            <strong>Hardware Infrastructure</strong>, <strong>Network Security</strong>, and <strong>Modern Web Development</strong>.
-        </p>
+
         <p>
-            From assembling and maintaining hardware components to building robust backend architectures and pixel-perfect frontends, 
-            I love owning the full lifecycle of a project. My background in <strong>Cybersecurity</strong> and <strong>Data Analytics</strong> 
-            ensures that every solution I build is not only functional and scalable but also resilient and data-driven.
+          I'm <strong>Stella Wanjira Ndungu</strong>, a dedicated Tech Enthusiast
+          with a deep-rooted passion for the entire digital ecosystem. My expertise
+          isn't limited to the screen—I bridge the gap between
+          <strong>Hardware Infrastructure</strong>,
+          <strong>Network Security</strong>, and
+          <strong>Modern Web Development</strong>.
         </p>
-        <p> Technology excites me—the thrill of troubleshooting a hardware bottleneck, the satisfaction of a well-designed API, 
-            and the joy of seeing users interact with a secure, high-performance system. When I'm not coding, I'm exploring 
-            network configurations, hardening systems, or sharpening my craft to stay at the forefront of the tech world.</p>
+
+        <p>
+          From assembling and maintaining hardware components to building robust
+          backend architectures and pixel-perfect frontends, I love owning the
+          full lifecycle of a project. My background in
+          <strong>Cybersecurity</strong> and <strong>Data Analytics</strong>
+          ensures that every solution I build is not only functional and scalable
+          but also resilient and data-driven.
+        </p>
+
+        <p>
+          Technology excites me—the thrill of troubleshooting a hardware bottleneck,
+          the satisfaction of a well-designed API, and the joy of seeing users
+          interact with a secure, high-performance system. When I'm not coding,
+          I'm exploring network configurations, hardening systems, or sharpening
+          my craft to stay at the forefront of the tech world.
+        </p>
+
       </div>
+
       <div class="about-highlights">
+
         <div class="highlight-card">
           <div class="highlight-icon">💻</div>
           <div>
@@ -100,6 +177,7 @@
             <p>Writing maintainable, efficient solutions</p>
           </div>
         </div>
+
         <div class="highlight-card">
           <div class="highlight-icon">💡</div>
           <div>
@@ -107,6 +185,7 @@
             <p>Turning complex challenges into simple systems</p>
           </div>
         </div>
+
         <div class="highlight-card">
           <div class="highlight-icon">👥</div>
           <div>
@@ -114,16 +193,21 @@
             <p>Thriving in teams and open communication</p>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
   <!-- Skills Section -->
   <section id="skills" class="section-muted">
+
     <div class="section-container">
+
       <h2>My <span class="gradient-text">Skills</span></h2>
       <div class="section-bar"></div>
+
       <div class="skills-grid">
+
         <div class="glass-card">
           <h3>Development</h3>
           <div class="tags">
@@ -138,12 +222,13 @@
             <span class="tag tag-primary">Android SDK</span>
           </div>
         </div>
+
         <div class="glass-card">
-          <h3>IT,Infrastructure&AI</h3>
+          <h3>IT, Infrastructure & AI</h3>
           <div class="tags">
-            <span class="tag tag-accent">Cisco Routing&Arista EOS</span>
+            <span class="tag tag-accent">Cisco Routing & Arista EOS</span>
             <span class="tag tag-accent">Linux/Unix</span>
-            <span class="tag tag-accent">Free BSD</span>
+            <span class="tag tag-accent">FreeBSD</span>
             <span class="tag tag-accent">Hardware Repair</span>
             <span class="tag tag-accent">PLC/SCADA</span>
             <span class="tag tag-accent">Machine Learning</span>
@@ -152,188 +237,523 @@
             <span class="tag tag-accent">OpenCV</span>
           </div>
         </div>
+
         <div class="glass-card">
-          <h3>Data &Security</h3>
+          <h3>Data & Security</h3>
           <div class="tags">
             <span class="tag tag-primary">Cybersecurity</span>
             <span class="tag tag-primary">Digital Forensics</span>
             <span class="tag tag-primary">MySQL/SQL</span>
             <span class="tag tag-primary">Power BI</span>
-            <span class="tag tag-primary">Pandas/Numpy</span>
+            <span class="tag tag-primary">Pandas/NumPy</span>
             <span class="tag tag-primary">Microsoft Excel</span>
-        
           </div>
         </div>
+
         <div class="glass-card">
           <h3>Tools & Workflow</h3>
           <div class="tags">
             <span class="tag tag-accent">Git & GitHub</span>
             <span class="tag tag-accent">VS Code</span>
-            <span class="tag tag-accent">Canva &Adobe photoshop</span>
-            <span class="tag tag-accent">Odoo,Hubspot,mailchimp</span>
+            <span class="tag tag-accent">Canva & Adobe Photoshop</span>
+            <span class="tag tag-accent">Odoo, HubSpot, Mailchimp</span>
             <span class="tag tag-accent">Agile/Scrum</span>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
   <!-- Projects Section -->
   <section id="projects" class="section-container">
+
     <h2>Featured <span class="gradient-text">Projects</span></h2>
     <div class="section-bar"></div>
+
     <div class="projects-grid">
 
       <div class="glass-card project-card">
+
         <h3>My Portfolio</h3>
-        <p>A high-performance web application showcasing the intersection of Full-Stack Development, Network Infrastructure, and Cybersecurity. Engineered with a custom Glassmorphism UI and modular architecture to demonstrate clean, production-ready code and technical versatility.</p>
+
+        <p>
+          A high-performance web application showcasing the intersection of
+          Full-Stack Development, Network Infrastructure, and Cybersecurity.
+          Engineered with a custom Glassmorphism UI and modular architecture
+          to demonstrate clean, production-ready code and technical versatility.
+        </p>
+
         <div class="tags">
           <span class="tag tag-primary">HTML5</span>
-          <span class="tag tag-primary"> Vanilla JavaScript</span>
-          <span class="tag tag-primary">Tailwind CSS</span>
+          <span class="tag tag-primary">Vanilla JavaScript</span>
+          <span class="tag tag-primary">CSS3</span>
         </div>
+
         <ul class="feature-list">
           <li>Glassmorphism UI Architecture</li>
           <li>Modular Component Design</li>
           <li>Serverless Email Integration</li>
-          <li>OptimizedAsset Loading</li>
+          <li>Optimized Asset Loading</li>
         </ul>
+
         <div class="project-links">
           <a href="#" class="btn-ghost">🔗 Code</a>
           <a href="#" class="btn-ghost">🌐 Live Demo</a>
         </div>
+
       </div>
 
       <div class="glass-card project-card">
-        <h3>TaskFlow — Project Management System</h3>
-        <p>A collaborative project management tool that helps teams organize tasks, track progress, assign roles, and meet deadlines efficiently.</p>
+
+        <h3>Dekut marketing App</h3>
+
+        <p>
+          A feature-rich cross-platform mobile application designed to streamline campus navigation, course discovery, and visitor engagement for Dedan Kimathi University of Technology. Integrates an AI-powered RAG engine for intelligent course recommendations and interactive campus tour bookings.
+        </p>
+
         <div class="tags">
           <span class="tag tag-primary">HTML/CSS</span>
           <span class="tag tag-primary">JavaScript</span>
           <span class="tag tag-primary">PHP</span>
           <span class="tag tag-primary">MySQL</span>
         </div>
+
         <ul class="feature-list">
-          <li>Drag-and-drop boards</li>
-          <li>Team collaboration</li>
-          <li>Real-time updates</li>
-          <li>Analytics</li>
+          <li>Interactive Campus Navigation</li>
+          <li>AI-Powered Course Recommendations</li>
+          <li>Real-time Visitor Engagement</li>
+          <li>Streamlined Booking System</li>
         </ul>
+
         <div class="project-links">
           <a href="#" class="btn-ghost">🔗 Code</a>
           <a href="#" class="btn-ghost">🌐 Live Demo</a>
         </div>
+
       </div>
 
     </div>
   </section>
-<section id="services" class="section-muted">
+
+  <!-- Capstone and Academic Work -->
+  <section id="capstone" class="section-muted">
+
     <div class="section-container">
+
+      <h2>Capstone <span class="gradient-text">Project</span></h2>
+      <div class="section-bar"></div>
+
+      <div class="capstone-grid">
+
+        <article class="glass-card capstone-card">
+
+          <h3>An Innnovation in my Field of Study</h3>
+
+          <div class="video-frame">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/cYkkopS8tSc"
+              title="An Innovation in my Field of Study"
+              loading="lazy"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <p>Multimedia project exploring an innovation in my field of study i.e Ai chatbots in gigher education.</p>
+
+        
+          <a class="btn-ghost"
+             href=https://docs.google.com/presentation/d/1ZN8rjRGefjPpNTKp9343Tz8AFQi4rFjL/edit?usp=drive_link&ouid=114580076022784440034&rtpof=true&sd=true
+             target="_blank"
+             rel="noopener noreferrer">
+            PowerPoint ↗
+          </a>
+
+          <a class="btn-ghost"
+             href=https://drive.google.com/file/d/14_Wvz_FdNkl6h91kD22eHqMfFifp2JP-/view?usp=drive_link
+             target="_blank"
+             rel="noopener noreferrer">
+            Abstract ↗
+          </a>
+
+        </article>
+
+        <article class="glass-card capstone-card">
+
+          <h3>Traditional Women's Councils in Governance and Peacebuilding</h3>
+
+          <div class="video-frame">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/WXDoWjc8WTA"
+              title="Traditional Women's Councils in Governance and Peacebuilding"
+              loading="lazy"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <p>
+            An exploration of an aspect of African culture and its role in
+            governance and peacebuilding.
+          </p>
+
+         
+          <a class="btn-ghost"
+             href=https://docs.google.com/presentation/d/1jxPHD34FfhUVudl0-nkNhvhyIjIPYtdI/edit?usp=drive_link&ouid=114580076022784440034&rtpof=true&sd=true
+             target="_blank"
+             rel="noopener noreferrer">
+            PowerPoint ↗
+          </a>
+
+          <a class="btn-ghost"
+             href=https://drive.google.com/file/d/1-auV7T6wjlZtITwRMWELCzL4tlNeYrnT/view?usp=drive_link
+             target="_blank"
+             rel="noopener noreferrer">
+            Abstract ↗
+          </a>
+
+        </article>
+
+        <article class="glass-card capstone-card">
+
+          <h3>Challenge facing Modern society</h3>
+
+          <div class="video-frame">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/ZEL3qclD6m4"
+              title="Challenge facing Modern society"
+              loading="lazy"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <p>Exploring the challenges facing modern society i.e Youth Unemployment and skills gap.</p>
+          
+
+          <a class="btn-ghost"
+             href=https://drive.google.com/file/d/1iZ2RrWd7-EtM6d3l9mViZve2bcn4-5OI/view?usp=drive_link
+             target="_blank"
+             rel="noopener noreferrer">
+            Abstract ↗
+          </a>
+
+        </article>
+
+        <article class="glass-card capstone-card">
+
+          <h3>My Autobiography</h3>
+
+          <p>A presentation sharing my personal and academic journey.</p>
+
+          <a class="btn-ghost"
+             href=https://docs.google.com/presentation/d/1gGSBBTyiB078iJ7UAvVlK5yWvpYYxy06/edit?usp=drive_link&ouid=114580076022784440034&rtpof=true&sd=true
+             target="_blank"
+             rel="noopener noreferrer">
+            PowerPoint ↗
+          </a>
+            <a class="btn-ghost"
+             href=https://drive.google.com/file/d/1tbaUAYAbbdYvjG6GLC79Q-OnBoQb1Hpe/view?usp=drive_link
+             target="_blank"
+             rel="noopener noreferrer">
+            pdf presentation ↗
+          </a>
+          
+
+        </article>
+
+        <article class="glass-card capstone-card">
+
+          <h3>Photographic Essay</h3>
+
+          <p>View the supporting materials in the project folder.</p>
+
+          <a class="btn-ghost"
+             href=https://drive.google.com/drive/folders/1ckaW2D0HZhO6UJpmtypGbbV14oQtVX_o?usp=drive_link
+             target="_blank"
+             rel="noopener noreferrer">
+            Open project folder ↗
+          </a>
+
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CV Section -->
+  <section id="cv" class="section-container">
+
+    <h2>CV &amp; <span class="gradient-text">Professional Documents</span></h2>
+    <div class="section-bar"></div>
+
+    <div class="cv-grid">
+
+      <article class="glass-card cv-card">
+        <h3>Curriculum Vitae</h3>
+        <p>Download my current curriculum vitae.</p>
+
+        <a class="btn btn-primary"
+           href="https://drive.google.com/file/d/1uICfmc03Io-qOyOS8LIfMwdyarj2l9yY/view?usp=drive_link"
+           target="_blank"
+           rel="noopener noreferrer"
+           download="Stella-Ndungu-CV.pdf">
+          View cv
+        </a>
+      </article>
+
+      <article class="glass-card cv-card">
+        <h3>Tawasifu</h3>
+        
+
+        <a class="btn btn-outline"
+           href=https://drive.google.com/file/d/1Nt88MhPFgQT5RC_5fL9HMfPlKAU3BrgR/view?usp=drive_link
+           target="_blank"
+           rel="noopener noreferrer">
+           ↗Tazama tawasifu
+        </a>
+      </article>
+      <article class="glass-card cv-card">
+        <h3>Kiragu kia Uruti wira</h3>
+       
+
+        <a class="btn btn-outline"
+           href=https://drive.google.com/file/d/1MrSXR0b0FYdt3UIWMfIwII-h5wgpLu0q/view?usp=drive_link
+           target="_blank"
+           rel="noopener noreferrer">
+           ↗Kiragu kia  uruti wira
+        </a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Online Presence -->
+  <section id="online-presence" class="section-muted">
+
+    <div class="section-container">
+
+      <h2>Online <span class="gradient-text">Presence</span></h2>
+      <div class="section-bar"></div>
+
+      <div class="social-profile-grid">
+
+        
+
+        <a class="glass-card social-profile"
+           href="https://www.linkedin.com/in/stella-ndung-u-6405b62b6"
+           target="_blank"
+           rel="noopener noreferrer">
+          <i class="fab fa-linkedin-in"></i>
+          <span>LinkedIn</span>
+          <small>Connect with me professionally</small>
+        </a>
+          <a class="glass-card social-profile"
+           href="https://www.facebook.com/wanjeeey"
+           target="_blank"
+           rel="noopener noreferrer">
+          <i class="fab fa-facebook-f"></i>
+          <span>Facebook</span>
+          <small>Connect on Facebook</small>
+        </a>
+  <a class="glass-card social-profile"
+           href=https://x.com/Stellahshiks/
+           target="_blank"
+           rel="noopener noreferrer">
+          <i class="fab fa-twitter"></i>
+          <span>Twitter</span>
+          <small>Connect on Twitter</small>
+        </a>
+          <a class="glass-card social-profile"
+           href="https://www.instagram.com/st3l.lah/"
+           target="_blank"
+           rel="noopener noreferrer">
+          <i class="fab fa-instagram"></i>
+          <span>Instagram</span>
+          <small>Connect on Instagram</small>
+        </a>
+        <a class="glass-card social-profile"
+           href="https://wa.me/254794845417"
+           target="_blank"
+           rel="noopener noreferrer">
+          <i class="fab fa-whatsapp"></i>
+          <span>WhatsApp</span>
+          <small>Get in touch</small>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="section-muted">
+
+    <div class="section-container">
+
       <h2>My <span class="gradient-text">Services</span></h2>
       <div class="section-bar"></div>
+
       <div class="services-grid">
+
         <div class="glass-card service-card">
           <div class="service-icon">🌐</div>
-          <h3>Software  Development</h3>
-          <p>I design and build modern web and application solutions, including frontend, backend, APIs, databases, and full system integration.</p>
+          <h3>Software Development</h3>
+          <p>
+            I design and build modern web and application solutions, including
+            frontend, backend, APIs, databases, and full system integration.
+          </p>
         </div>
+
         <div class="glass-card service-card">
           <div class="service-icon">🔗</div>
           <h3>Networking Services</h3>
-          <p> I Set up, configure, and maintain computer networks that ensure reliable connectivity, performance, and secure communication between systems.</p>
+          <p>
+            I set up, configure, and maintain computer networks that ensure
+            reliable connectivity, performance, and secure communication
+            between systems.
+          </p>
         </div>
+
         <div class="glass-card service-card">
           <div class="service-icon">🗃️</div>
-          <h3>IT Support&Cybersecurity </h3>
-          <p> I Provide technical support, troubleshoot systems, and implement security practices to protect devices, networks, and data from threats.</p>
+          <h3>IT Support & Cybersecurity</h3>
+          <p>
+            I provide technical support, troubleshoot systems, and implement
+            security practices to protect devices, networks, and data from threats.
+          </p>
         </div>
 
         <div class="glass-card service-card">
           <div class="service-icon">🤖</div>
-          <h3> Data Analysis &AI</h3>
-          <p> I analyze data to extract insights and build AI models that drive business decisions and automation.</p>
+          <h3>Data Analysis & AI</h3>
+          <p>
+            I analyze data to extract insights and build AI models that drive
+            business decisions and automation.
+          </p>
         </div>
+
       </div>
     </div>
   </section>
+
   <!-- Contact Section -->
- 
   <section id="contact" class="section-container">
-    
+
     <div class="contact-header">
-        <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
-        <div class="section-bar"></div>
+      <h2 class="section-title">
+        Get In <span class="gradient-text">Touch</span>
+      </h2>
+      <div class="section-bar"></div>
     </div>
 
     <div class="contact-grid">
-        
-        <div class="contact-column">
-            <p class="contact-description">
-                Have a project in mind or want to collaborate? I'd love to hear from you. 
-                Let's build something amazing together.
-            </p>
 
-            <div class="contact-details">
-                <div class="contact-item">
-                    <div class="contact-icon">✉</div>
-                    <div class="contact-text">
-                        
-                        <span>wanjirastella90@gmail.com</span>
-                    </div>
-                </div>
+      <div class="contact-column">
 
-                <div class="contact-item">
-                    <div class="contact-icon">📞</div>
-                    <div class="contact-text">
-    
-                        <span>+254 794845417</span>
-                    </div>
-                </div>
+        <p class="contact-description">
+          Have a project in mind or want to collaborate? I'd love to hear from you.
+          Let's build something amazing together.
+        </p>
 
-                <div class="contact-item">
-                    <div class="contact-icon">📍</div>
-                    <div class="contact-text">
-                        <span>Nyeri, Kenya</span>
-                    </div>
-                </div>
+        <div class="contact-details">
+
+          <div class="contact-item">
+            <div class="contact-icon">✉</div>
+            <div class="contact-text">
+              <span>wanjirastella90@gmail.com</span>
             </div>
+          </div>
 
-            <div class="social-links-area">
-                <div class="social-links">
-                    <a href="https://github.com/stellawanjira" target="_blank" class="social-icon">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/stella-ndung-u-6405b62b6" target="_blank" class="social-icon">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://wa.me/254794845417" target="_blank" class="social-icon">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                </div>
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div class="contact-text">
+              <span>+254 794845417</span>
             </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div class="contact-text">
+              <span>Nyeri, Kenya</span>
+            </div>
+          </div>
+
         </div>
 
-        <div class="contact-column">
-            <form id="contact-form" class="contact-form">
-                <input type="text" name="from_name" placeholder="Full Name" required>
-                <input type="email" name="user_email" placeholder="Email Address" required>
-                <textarea name="message" placeholder="How can I help you?" required></textarea>
-                
-                <button type="submit" id="button" class="btn btn-primary">
-                    Send Message <i class="fas fa-paper-plane"></i>
-                </button>
-            </form>
+        <div class="social-links-area">
+          <div class="social-links">
+
+            <a href="https://github.com/stellawanjira"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="social-icon"
+               aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/in/stella-ndung-u-6405b62b6"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="social-icon"
+               aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+
+            <a href="https://wa.me/254794845417"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="social-icon"
+               aria-label="WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+
+          </div>
         </div>
 
+      </div>
+
+      <div class="contact-column">
+
+        <form id="contact-form" class="contact-form">
+
+          <input
+            type="text"
+            name="from_name"
+            placeholder="Full Name"
+            autocomplete="name"
+            required
+          />
+
+          <input
+            type="email"
+            name="user_email"
+            placeholder="Email Address"
+            autocomplete="email"
+            required
+          />
+
+          <textarea
+            name="message"
+            placeholder="How can I help you?"
+            required>
+          </textarea>
+
+          <button type="submit" id="button" class="btn btn-primary">
+            Send Message <i class="fas fa-paper-plane"></i>
+          </button>
+
+        </form>
+
+      </div>
     </div>
-</section>
+  </section>
 
   <!-- Footer -->
   <footer class="footer">
+
     <div class="footer-container">
-      <p>© 2025 Stella Wanjira Ndungu. All rights reserved.</p>
+      <p>© 2026 Stella Wanjira Ndungu. All rights reserved.</p>
       <p>Built with <span class="heart">♥</span> and code</p>
     </div>
+
   </footer>
 
   <script src="script.js"></script>
