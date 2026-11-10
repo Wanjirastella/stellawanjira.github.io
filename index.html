@@ -7,19 +7,20 @@
   <meta name="description" content="Portfolio of Stella Wanjira Ndungu, a tech enthusiast specializing in web development, IT infrastructure, cybersecurity, data analytics and AI." />
 
   <!-- Apply the saved theme before the page loads to prevent a flash -->
-  <script>
-    (function () {
-      try {
-        const savedTheme = localStorage.getItem('theme');
-        document.documentElement.setAttribute(
-          'data-theme',
-          savedTheme === 'light' ? 'light' : 'dark'
-        );
-      } catch (error) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-      }
-    })();
-  </script>
+ <script>
+  (function () {
+    try {
+      const savedTheme = localStorage.getItem('theme');
+
+      document.documentElement.setAttribute(
+        'data-theme',
+        savedTheme === 'light' ? 'light' : 'dark'
+      );
+    } catch (error) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  })();
+</script>
 
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
