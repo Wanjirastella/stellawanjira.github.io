@@ -41,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }
 
-
   // ==========================================
   // 2. DARK AND LIGHT MODE
   // ==========================================
@@ -50,40 +49,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const isLight = theme === 'light';
 
-    // Use the body.light-mode class expected by the stylesheet.
+    // Match the theme selector used in style.css.
+    document.documentElement.setAttribute('data-theme', theme);
+
+    // Retain the body class for any existing styles using it.
     document.body.classList.toggle('light-mode', isLight);
 
     if (themeIcon) {
-
       themeIcon.classList.toggle('fa-sun', isLight);
       themeIcon.classList.toggle('fa-moon', !isLight);
-
     }
 
     if (themeToggle) {
-
       themeToggle.setAttribute(
         'aria-label',
         isLight ? 'Switch to dark mode' : 'Switch to light mode'
       );
 
       themeToggle.setAttribute('aria-pressed', String(isLight));
-
     }
-
   };
 
-  // Load the saved theme safely.
   let savedTheme = 'dark';
 
   try {
-
     savedTheme = localStorage.getItem('theme') || 'dark';
-
   } catch (error) {
-
     console.warn('Could not access saved theme:', error);
-
   }
 
   applyTheme(savedTheme);
@@ -92,20 +84,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     themeToggle.addEventListener('click', () => {
 
-      const newTheme = document.body.classList.contains('light-mode')
-        ? 'dark'
-        : 'light';
+      const currentTheme =
+        document.documentElement.getAttribute('data-theme') || 'dark';
+
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
 
       applyTheme(newTheme);
 
       try {
-
         localStorage.setItem('theme', newTheme);
-
       } catch (error) {
-
         console.warn('Could not save theme:', error);
-
       }
 
     });
@@ -132,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', updateNavbar, { passive: true });
 
 
-  // ==========================================
+   // ==========================================
   // 4. TYPEWRITER EFFECT
   // ==========================================
 
@@ -147,46 +136,60 @@ document.addEventListener('DOMContentLoaded', () => {
       'Networking Specialist'
     ];
 
-    let roleIndex = 0;
-    let charIndex = roles[0].length;
-    let deleting = false;
+    // Respect accessibility preferences.
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches;
 
-    const type = () => {
+    if (prefersReducedMotion) {
 
-      const currentRole = roles[roleIndex];
+      typingTarget.textContent = roles[0];
 
-      if (deleting) {
-        charIndex--;
-      } else {
-        charIndex++;
-      }
+    } else {
 
-      typingTarget.textContent = currentRole.substring(0, charIndex);
+      let roleIndex = 0;
+      let charIndex = 0;
+      let deleting = false;
 
-      let delay = deleting ? 55 : 110;
+      typingTarget.textContent = '';
 
-      if (!deleting && charIndex === currentRole.length) {
+      const type = () => {
 
-        deleting = true;
-        delay = 1700;
+        const currentRole = roles[roleIndex];
 
-      } else if (deleting && charIndex === 0) {
+        if (deleting) {
+          charIndex--;
+        } else {
+          charIndex++;
+        }
 
-        deleting = false;
-        roleIndex = (roleIndex + 1) % roles.length;
-        delay = 350;
+        typingTarget.textContent = currentRole.substring(0, charIndex);
 
-      }
+        let delay = deleting ? 50 : 100;
 
-      window.setTimeout(type, delay);
+        if (!deleting && charIndex === currentRole.length) {
 
-    };
+          deleting = true;
+          delay = 1600;
 
-    // Allow the first role to remain visible before animation starts.
-    window.setTimeout(type, 2200);
+        } else if (deleting && charIndex === 0) {
+
+          deleting = false;
+          roleIndex = (roleIndex + 1) % roles.length;
+          delay = 400;
+
+        }
+
+        window.setTimeout(type, delay);
+
+      };
+
+      // Start typing shortly after the page loads.
+      window.setTimeout(type, 700);
+
+    }
 
   }
-
 
   // ==========================================
   // 5. SCROLL REVEAL ANIMATIONS
