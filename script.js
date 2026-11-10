@@ -1,18 +1,14 @@
+
 document.addEventListener('DOMContentLoaded', () => {
 
   const menuToggle = document.getElementById('menu-toggle');
   const navLinks = document.getElementById('nav-links');
-
   const themeToggle = document.getElementById('theme-toggle');
   const themeIcon = document.getElementById('theme-icon');
-
   const navbar = document.getElementById('navbar');
-
   const typingTarget = document.querySelector('.typing-text');
-
   const contactForm = document.getElementById('contact-form');
   const submitButton = document.getElementById('button');
-
 
   // ==========================================
   // 1. MOBILE NAVIGATION
@@ -27,23 +23,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const isOpen = navLinks.classList.toggle('open');
 
       menuToggle.classList.toggle('active', isOpen);
-
-      menuToggle.setAttribute(
-        'aria-expanded',
-        String(isOpen)
-      );
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
 
     });
 
-    // Close the mobile menu after clicking a link.
     navLinks.querySelectorAll('a').forEach(link => {
 
       link.addEventListener('click', () => {
 
         navLinks.classList.remove('open');
-
         menuToggle.classList.remove('active');
-
         menuToggle.setAttribute('aria-expanded', 'false');
 
       });
@@ -61,15 +50,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const isLight = theme === 'light';
 
-    document.documentElement.setAttribute(
-      'data-theme',
-      isLight ? 'light' : 'dark'
-    );
+    // Use the body.light-mode class expected by the stylesheet.
+    document.body.classList.toggle('light-mode', isLight);
 
     if (themeIcon) {
 
       themeIcon.classList.toggle('fa-sun', isLight);
-
       themeIcon.classList.toggle('fa-moon', !isLight);
 
     }
@@ -81,17 +67,13 @@ document.addEventListener('DOMContentLoaded', () => {
         isLight ? 'Switch to dark mode' : 'Switch to light mode'
       );
 
-      themeToggle.setAttribute(
-        'aria-pressed',
-        String(isLight)
-      );
+      themeToggle.setAttribute('aria-pressed', String(isLight));
 
     }
 
   };
 
-
-  // Load the saved theme.
+  // Load the saved theme safely.
   let savedTheme = 'dark';
 
   try {
@@ -106,17 +88,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   applyTheme(savedTheme);
 
-
-  // Change theme when the button is clicked.
   if (themeToggle) {
 
     themeToggle.addEventListener('click', () => {
 
-      const currentTheme =
-        document.documentElement.getAttribute('data-theme');
-
-      const newTheme =
-        currentTheme === 'light' ? 'dark' : 'light';
+      const newTheme = document.body.classList.contains('light-mode')
+        ? 'dark'
+        : 'light';
 
       applyTheme(newTheme);
 
@@ -143,10 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (navbar) {
 
-      navbar.classList.toggle(
-        'scrolled',
-        window.scrollY > 50
-      );
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
 
     }
 
@@ -154,11 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   updateNavbar();
 
-  window.addEventListener(
-    'scroll',
-    updateNavbar,
-    { passive: true }
-  );
+  window.addEventListener('scroll', updateNavbar, { passive: true });
 
 
   // ==========================================
@@ -177,50 +148,32 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     let roleIndex = 0;
-
     let charIndex = roles[0].length;
-
     let deleting = false;
 
-    // The first role is already displayed in the HTML.
-    // Wait before beginning the typing animation.
     const type = () => {
 
       const currentRole = roles[roleIndex];
 
       if (deleting) {
-
         charIndex--;
-
       } else {
-
         charIndex++;
-
       }
 
-      typingTarget.textContent =
-        currentRole.substring(0, charIndex);
-
+      typingTarget.textContent = currentRole.substring(0, charIndex);
 
       let delay = deleting ? 55 : 110;
 
-
-      // When a complete word has been typed.
       if (!deleting && charIndex === currentRole.length) {
 
         deleting = true;
-
         delay = 1700;
 
-      }
-
-      // When the word has been completely erased.
-      else if (deleting && charIndex === 0) {
+      } else if (deleting && charIndex === 0) {
 
         deleting = false;
-
         roleIndex = (roleIndex + 1) % roles.length;
-
         delay = 350;
 
       }
@@ -229,8 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     };
 
-
-    // Allow the first role to remain visible briefly.
+    // Allow the first role to remain visible before animation starts.
     window.setTimeout(type, 2200);
 
   }
@@ -241,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================
 
   const revealItems = document.querySelectorAll(
-    'section > .section-container > h2, .glass-card, .highlight-card, .about-text, .hero-text, .hero-photo, .contact-column'
+    'section > .section-container > h2, .glass-card, .highlight-card, .about-text, .hero-text, .hero-photo, .contact-column, .contact-form'
   );
 
   if ('IntersectionObserver' in window) {
@@ -254,7 +206,6 @@ document.addEventListener('DOMContentLoaded', () => {
           if (entry.isIntersecting) {
 
             entry.target.classList.add('visible');
-
             observer.unobserve(entry.target);
 
           }
@@ -268,11 +219,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     );
 
-
     revealItems.forEach(element => {
 
       element.classList.add('fade-in');
-
       observer.observe(element);
 
     });
@@ -298,7 +247,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       event.preventDefault();
 
-
       // Check whether EmailJS is available.
       if (
         !window.emailjs ||
@@ -314,21 +262,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
       }
 
-
       const originalButtonContent = submitButton
         ? submitButton.innerHTML
         : 'Send Message';
-
 
       // Prevent repeated submissions.
       if (submitButton) {
 
         submitButton.disabled = true;
-
         submitButton.textContent = 'Sending...';
 
       }
-
 
       try {
 
@@ -338,14 +282,9 @@ document.addEventListener('DOMContentLoaded', () => {
           contactForm
         );
 
-
-        showToast(
-          'Thank you! Your message has been sent.'
-        );
-
+        showToast('Thank you! Your message has been sent.');
 
         contactForm.reset();
-
 
       } catch (error) {
 
@@ -356,14 +295,12 @@ document.addEventListener('DOMContentLoaded', () => {
           true
         );
 
-
       } finally {
 
-        // Restore the button whether sending succeeds or fails.
+        // Restore the button after success or failure.
         if (submitButton) {
 
           submitButton.disabled = false;
-
           submitButton.innerHTML = originalButtonContent;
 
         }
@@ -388,29 +325,22 @@ function showToast(message, isError = false) {
   toast.className = 'toast-notification';
 
   if (isError) {
-
     toast.classList.add('error');
-
   }
 
-  toast.setAttribute('role', 'status');
-
-  toast.setAttribute('aria-live', 'polite');
+  toast.setAttribute('role', isError ? 'alert' : 'status');
+  toast.setAttribute('aria-live', isError ? 'assertive' : 'polite');
 
   toast.textContent = message;
 
   document.body.appendChild(toast);
 
-
-  // Display the notification.
   requestAnimationFrame(() => {
 
     toast.classList.add('show');
 
   });
 
-
-  // Remove it after 3.5 seconds.
   window.setTimeout(() => {
 
     toast.classList.remove('show');

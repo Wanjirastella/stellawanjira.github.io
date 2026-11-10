@@ -1143,7 +1143,6 @@ h2 {
     align-items: flex-start;
   }
 }
-
 /* ===== ACCESSIBILITY ===== */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1154,5 +1153,17 @@ h2 {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* Light Theme Scrolled Navigation */
+body.light-mode .navbar.scrolled {
+  background: rgba(245, 247, 250, 0.97);
+}
+
+/* Responsive Contact Layout */
+@media (max-width: 768px) {
+  .contact-column {
+    width: 100%;
   }
 }
